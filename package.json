@@ -1,0 +1,42 @@
+{
+  "name": "phoenix-invicta",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts",
+    "prod": "pnpm build && pnpm start",
+    "db:up": "docker compose up -d",
+    "db:create": "docker compose exec db mariadb -u root -pexample -e \"CREATE DATABASE IF NOT EXISTS test_assignment;\"",
+    "db:schema": "docker compose exec -T db mariadb -u root -pexample test_assignment < sql/schema.sql",
+    "db:init": "pnpm db:create && pnpm db:schema",
+    "db:seed": "ts-node --files src/scripts/seed.ts"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "mariadb": "^3.5.2",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.5.2",
+    "nodemon": "^3.1.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2"
+  },
+  "prettier": {
+    "printWidth": 140,
+    "semi": false,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "useTabs": false,
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "bracketSameLine": true
+  }
+}
