@@ -1,6 +1,6 @@
 # Phoenix Invicta
 
-This project is a Node.js and TypeScript backend application that uses MariaDB as its database.
+This project is a Node.js and TypeScript backend application that uses MariaDB as its database. https://docs.google.com/document/d/1WpAClr2dlGBcA7yZqE-DPjmqfCydQKQYwDl7jGaPkcc/edit?usp=sharing
 
 ## Requirements
 
